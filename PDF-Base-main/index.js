@@ -225,6 +225,7 @@ const phoneNumber = await question(chalk.hex("#6c5ce7")(`Input Ur Number Starts 
 
     WaSocket.ev.on('creds.update', saveCreds);
     
+    /*
     WaSocket.ev.on('group-participants.update', async (update) => {
       const { id, author, participants, action } = update
       try {
@@ -276,6 +277,7 @@ const phoneNumber = await question(chalk.hex("#6c5ce7")(`Input Ur Number Starts 
         console.error(e)
       }
     })
+    */
 }
 
 connectToWhatsApp();

